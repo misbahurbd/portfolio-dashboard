@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="a" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 118.8 124.4" style="enable-background:new 0 0 118.8 124.4;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#0053F5;}
+	.st1{opacity:0.7;fill:url(#SVGID_1_);enable-background:new    ;}
+	.st2{opacity:0.7;fill:url(#SVGID_00000056410285859811375570000016188698898415743620_);enable-background:new    ;}
+</style>
+<path class="st0" d="M110.4,2.3c-6.2-3.4-13.9-2.5-19.2,2.2L76.3,17.1l-17,13.9L27.6,4.4c-5.3-5-13-5.9-19.2-2.2
+	C3.1,5.1,0,11,0,17.2v90.2c0,5.9,3.1,11.8,8.4,14.6c2.5,1.6,5.3,2.2,8.1,2.2c3.4,0,7.1-1.2,9.9-3.4L44,107.1l15.2-11.8L92.4,121
+	c5.3,4,12.1,4.3,18,1.2c5.3-2.8,8.4-8.7,8.4-14.6V17.2C118.4,11,115.6,5.1,110.4,2.3L110.4,2.3z M101.7,107.1L72.9,84.8L59.2,74.2
+	L53,69.6c-8.1-6.2-19.2-6.2-27,0.3l19.2,14.9L30.4,96.2l-13.6,10.5V17.5l29.5,24.8l12.7,10.5l0.3,0.3l5.6,4.7
+	c7.4,6.2,18.6,6.5,26.4,0.3l-0.6-0.6l-0.3-0.3l-18-14.9l11.5-9.6l18-15.2V107.1L101.7,107.1z"/>
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="63.37" y1="-950.6692" x2="78.523" y2="-938.015" gradientTransform="matrix(1 0 0 -1 0 -912)">
+	<stop  offset="0" style="stop-color:#000000;stop-opacity:0.8"/>
+	<stop  offset="1" style="stop-color:#231F20;stop-opacity:0"/>
+</linearGradient>
+<polygon class="st1" points="83.9,32.5 72.2,42.3 59.2,31.1 76.2,17.2 "/>
+<linearGradient id="SVGID_00000176028709473451358380000017822779738035111080_" gradientUnits="userSpaceOnUse" x1="51.9267" y1="1041.0074" x2="40.5755" y2="1055.9615" gradientTransform="matrix(1 0 0 1 0 -954.64)">
+	<stop  offset="0" style="stop-color:#000000;stop-opacity:0.8"/>
+	<stop  offset="1" style="stop-color:#231F20;stop-opacity:0"/>
+</linearGradient>
+<polygon style="opacity:0.7;fill:url(#SVGID_00000176028709473451358380000017822779738035111080_);enable-background:new    ;" points="
+	59.2,95.3 44.2,107 30.4,96.2 45.3,84.7 "/>
+</svg>
