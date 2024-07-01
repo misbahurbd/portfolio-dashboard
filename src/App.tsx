@@ -9,9 +9,12 @@ import ProjectsPage from "@/pages/projects"
 import CreateProjectPage from "@/pages/projects/create-project"
 import EducationPage from "@/pages/educations"
 import CreateEducationPage from "@/pages/educations/create-education"
-import EditProjectPage from "./pages/projects/edit-project"
-import EditEducationPage from "./pages/educations/edit-education"
-import EditBlogPage from "./pages/blogs/edit-blog"
+import EditProjectPage from "@/pages/projects/edit-project"
+import EditEducationPage from "@/pages/educations/edit-education"
+import EditBlogPage from "@/pages/blogs/edit-blog"
+import ExperiencesPage from "@/pages/experiences"
+import CreateExperiencePage from "@/pages/experiences/create-experience"
+import EditExperiencePage from "@/pages/experiences/edit-experience"
 
 const App = () => {
   const router = createBrowserRouter([
@@ -53,6 +56,23 @@ const App = () => {
             {
               path: "edit/:id",
               element: <EditProjectPage />,
+            },
+          ],
+        },
+        {
+          path: "experiences",
+          children: [
+            {
+              index: true,
+              element: <ExperiencesPage />,
+            },
+            {
+              path: "create",
+              element: <CreateExperiencePage />,
+            },
+            {
+              path: "edit/:id",
+              element: <EditExperiencePage />,
             },
           ],
         },

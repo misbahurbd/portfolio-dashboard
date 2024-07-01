@@ -4,34 +4,33 @@ import FormInput from "@/components/shared/form-input"
 import FormTextarea from "@/components/shared/form-textarea"
 import { Button } from "@/components/ui/button"
 import { Form } from "@/components/ui/form"
-import { createEducationFormSchema } from "@/validations/education.validations"
+import { experienceFormSchema } from "@/validations/experience.validation"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
-interface EducationFormProps {
-  onSubmit: (values: any) => void
+interface ExperienceFormProps {
+  onSubmit: (values: z.infer<typeof experienceFormSchema>) => void
   isLoading: boolean
   btnLabel: string
-  initialData?: z.infer<typeof createEducationFormSchema>
+  initialData?: z.infer<typeof experienceFormSchema>
 }
 
-const EducationForm: React.FC<EducationFormProps> = ({
+const ExperienceForm: React.FC<ExperienceFormProps> = ({
   onSubmit,
   isLoading,
   btnLabel,
   initialData,
 }) => {
-  const form = useForm<z.infer<typeof createEducationFormSchema>>({
-    resolver: zodResolver(createEducationFormSchema),
+  const form = useForm<z.infer<typeof experienceFormSchema>>({
+    resolver: zodResolver(experienceFormSchema),
     defaultValues: {
-      school: initialData?.school || "",
+      company: initialData?.company || "",
+      title: initialData?.title || "",
       location: initialData?.location || "",
-      degree: initialData?.degree || "",
-      description: initialData?.description || "",
-      fieldOfStudy: initialData?.fieldOfStudy || "",
       startDate: initialData ? new Date(initialData.startDate) : undefined,
-      endDate: initialData ? new Date(initialData.endDate) : undefined,
+      endDate: initialData?.endDate ? new Date(initialData.endDate) : undefined,
+      description: initialData?.description || "",
     },
   })
 
@@ -43,10 +42,18 @@ const EducationForm: React.FC<EducationFormProps> = ({
       >
         <FormInput
           form={form}
-          name="school"
-          label="School"
+          name="title"
+          label="Title"
           className="sm:col-span-2"
-          placeholder="School"
+          placeholder="Title"
+          disabled={isLoading}
+        />
+        <FormInput
+          form={form}
+          name="company"
+          label="Company"
+          className="sm:col-span-2"
+          placeholder="Company"
           disabled={isLoading}
         />
         <FormInput
@@ -70,31 +77,14 @@ const EducationForm: React.FC<EducationFormProps> = ({
         <FormDatePicker
           form={form}
           name="endDate"
-          label="End Date (or expected)"
+          label="End Date (if leave)"
           range="range"
-          required
           startDate={form.watch("startDate")?.toLocaleString()}
           defaultDate={
             form.watch("endDate")?.toLocaleString() ||
             form.watch("startDate")?.toLocaleString()
           }
           placeholder="Select Start Date"
-          disabled={isLoading}
-        />
-        <FormInput
-          form={form}
-          name="degree"
-          label="Degree"
-          className="sm:col-span-2"
-          placeholder="Degree"
-          disabled={isLoading}
-        />
-        <FormInput
-          form={form}
-          name="fieldOfStudy"
-          label="Field of Study"
-          className="sm:col-span-2"
-          placeholder="Field of Study"
           disabled={isLoading}
         />
         <FormTextarea
@@ -118,4 +108,4 @@ const EducationForm: React.FC<EducationFormProps> = ({
     </Form>
   )
 }
-export default EducationForm
+export default ExperienceForm

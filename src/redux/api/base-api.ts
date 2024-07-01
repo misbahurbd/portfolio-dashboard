@@ -4,7 +4,7 @@ import { RootState } from "@/redux/store"
 import { logOut, setCredentials } from "@/redux/features/auth/auth-slice"
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://localhost:4800/api/v1",
+  baseUrl: "https://portfolio-server-sepia-seven.vercel.app/api/v1",
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token
@@ -42,7 +42,7 @@ const baseQueryWithReAuth = async (args: any, api: any, extraOptions: any) => {
 
 export const baseApi = createApi({
   reducerPath: "baseApi",
-  tagTypes: ["users", "blogs", "projects", "educations"],
+  tagTypes: ["users", "blogs", "projects", "educations", "experiences"],
   baseQuery: baseQueryWithReAuth,
   endpoints: () => ({}),
 })

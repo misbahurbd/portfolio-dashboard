@@ -1,5 +1,4 @@
 export interface IEducation {
-  createdAt: string
   degree: string
   description: string
   endDate: string
@@ -8,6 +7,19 @@ export interface IEducation {
   location: string
   school: string
   startDate: string
+  createdAt: string
+  updatedAt: string
+}
+
+export interface IExperience {
+  id: string
+  title: string
+  company: string
+  location: string
+  description: string
+  startDate: string
+  endDate: string | null
+  createdAt: string
   updatedAt: string
 }
 

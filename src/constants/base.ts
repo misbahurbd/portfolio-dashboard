@@ -1,6 +1,6 @@
 import { IconType } from "react-icons"
 import {
-  // PiBriefcaseDuotone,
+  PiBriefcaseDuotone,
   PiDiamondsFourDuotone,
   PiFilesDuotone,
   PiGraduationCapDuotone,
@@ -30,23 +30,23 @@ export const navlinks = (
       isActive: pathname.startsWith("/projects"),
       icon: PiDiamondsFourDuotone,
     },
-    // {
-    //   path: "/experiences",
-    //   label: "Experiences",
-    //   isActive: pathname.startsWith("/experiences"),
-    //   icon: PiBriefcaseDuotone,
-    // },
-    // {
-    //   path: "/skills",
-    //   label: "Skills",
-    //   isActive: pathname.startsWith("/skills"),
-    //   icon: PiLightbulbFilamentDuotone,
-    // },
+    {
+      path: "/experiences",
+      label: "Experiences",
+      isActive: pathname.startsWith("/experiences"),
+      icon: PiBriefcaseDuotone,
+    },
     {
       path: "/educations",
       label: "Educations",
       isActive: pathname.startsWith("/educations"),
       icon: PiGraduationCapDuotone,
     },
+    // {
+    //   path: "/skills",
+    //   label: "Skills",
+    //   isActive: pathname.startsWith("/skills"),
+    //   icon: PiLightbulbFilamentDuotone,
+    // },
   ]
 }

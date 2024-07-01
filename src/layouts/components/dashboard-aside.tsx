@@ -39,7 +39,7 @@ const DashboardAside = () => {
           type="button"
           onClick={toggleNavCollapse}
         >
-          <PiTextAlignCenterDuotone className="size-[2.1rem]" />
+          <PiTextAlignCenterDuotone className="size-[2.1rem] scale-90" />
         </button>
         {!navCollapse && (
           <Link to="/">
