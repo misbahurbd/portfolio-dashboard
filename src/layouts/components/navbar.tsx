@@ -22,7 +22,9 @@ const Navbar = ({ navCollapse = false }: { navCollapse?: boolean }) => {
                 link.isActive && "text-primary bg-primary/10"
               )}
             >
-              <link.icon className="text-[1.1em]" />
+              <span className="block px-1">
+                <link.icon className="text-[1.1em]" />
+              </span>
               <span
                 className={cn(
                   navCollapse &&

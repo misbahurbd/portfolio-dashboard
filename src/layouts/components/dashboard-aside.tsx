@@ -25,30 +25,30 @@ const DashboardAside = () => {
     <div
       className={cn(
         "hidden md:flex border-r-[1px] border-border h-screen w-52 shrink-0 flex-col gap-2",
-        navCollapse && "w-11"
+        navCollapse && "w-13"
       )}
     >
       <div
         className={cn(
-          "p-3 border-b-[1px] border-border h-14 shrink-0 flex items-center justify-between",
+          "p-2 border-b-[1px] border-border h-14 shrink-0 flex items-center gap-2",
           navCollapse && "p-0 justify-center"
         )}
       >
-        {!navCollapse && (
-          <Link to="/">
-            <img
-              src="/misbahurbd-logo.svg"
-              className="block w-28"
-            />
-          </Link>
-        )}
         <button
           className="transition hover:text-primary"
           type="button"
           onClick={toggleNavCollapse}
         >
-          <PiTextAlignCenterDuotone className="size-7" />
+          <PiTextAlignCenterDuotone className="size-[2.1rem]" />
         </button>
+        {!navCollapse && (
+          <Link to="/">
+            <img
+              src="/misbahurbd-logo.svg"
+              className="block w-24"
+            />
+          </Link>
+        )}
       </div>
       <Navbar navCollapse={navCollapse} />
     </div>

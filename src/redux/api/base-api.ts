@@ -18,7 +18,7 @@ const baseQuery = fetchBaseQuery({
 const baseQueryWithReAuth = async (args: any, api: any, extraOptions: any) => {
   let result = await baseQuery(args, api, extraOptions)
 
-  if (result?.error?.status === 403) {
+  if (result?.error?.status === 403 || result?.error?.status === 401) {
     // send refresh token to get new access token
     const res: any = await baseQuery("/auth/refresh-token", api, extraOptions)
 
@@ -42,7 +42,7 @@ const baseQueryWithReAuth = async (args: any, api: any, extraOptions: any) => {
 
 export const baseApi = createApi({
   reducerPath: "baseApi",
-  tagTypes: ["users"],
+  tagTypes: ["users", "blogs", "projects", "educations"],
   baseQuery: baseQueryWithReAuth,
   endpoints: () => ({}),
 })

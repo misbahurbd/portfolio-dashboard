@@ -1,43 +1,32 @@
-import PageHeader from "@/components/shared/page-header"
-import { Form } from "@/components/ui/form"
-import { createBlogFormSchema } from "@/validations/blog.validations"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
-const CreateBlog = () => {
-  const form = useForm<z.infer<typeof createBlogFormSchema>>({
-    resolver: zodResolver(createBlogFormSchema),
-    defaultValues: {
-      title: "",
-      slug: "",
-      content: "",
-      category: "",
-      featurePhoto: "",
-      metadata: {
-        title: "",
-        description: "",
-        socialImg: "",
-      },
-    },
-  })
+import { useCreateBlogMutation } from "@/redux/features/blog/blog-api"
+import { createBlogFormSchema } from "@/validations/blog.validations"
+import { useNavigate } from "react-router-dom"
+import { toast } from "sonner"
+import { z } from "zod"
+import BlogForm from "../components/blog-form"
+
+const CreateBlogPage = () => {
+  const [createBlog, { isLoading }] = useCreateBlogMutation()
+  const navigate = useNavigate()
 
   const onSubmit = async (values: z.infer<typeof createBlogFormSchema>) => {
-    console.log({ blogData: values })
+    try {
+      const res = await createBlog(values)
+      toast.success(res?.data?.message)
+      navigate("/blogs")
+    } catch (error: any) {
+      toast.error(error?.data?.message || "Unable to create blog")
+    }
   }
 
   return (
-    <>
-      <PageHeader title="Create new blog" />
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="flex flex-col md:flex-row gap-4"
-        >
-          <div className="flex flex-col gap-4"></div>
-        </form>
-      </Form>
-    </>
+    <BlogForm
+      onSubmit={onSubmit}
+      isLoading={isLoading}
+      label="Publish Blog"
+    />
   )
 }
-export default CreateBlog
+export default CreateBlogPage
