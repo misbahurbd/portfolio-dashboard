@@ -25,7 +25,7 @@ const CreateBlogPage = () => {
     <BlogForm
       onSubmit={onSubmit}
       isLoading={isLoading}
-      label="Publish Blog"
+      label="Publish"
     />
   )
 }

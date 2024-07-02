@@ -41,7 +41,7 @@ const EditExperiencePage = () => {
       <ExperienceForm
         onSubmit={onSubmit}
         isLoading={isLoading}
-        btnLabel="Update Education"
+        btnLabel="Update"
         initialData={experienceData?.data}
       />
     </div>

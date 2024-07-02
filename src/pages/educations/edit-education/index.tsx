@@ -43,7 +43,7 @@ const EditEducationPage = () => {
       <EducationForm
         onSubmit={onSubmit}
         isLoading={isLoading}
-        btnLabel="Update Education"
+        btnLabel="Update"
         initialData={educationData?.data}
       />
     </div>

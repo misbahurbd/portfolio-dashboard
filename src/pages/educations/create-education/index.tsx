@@ -120,7 +120,7 @@ const CreateEducationPage = () => {
               type="submit"
               disabled={isLoading}
             >
-              Add Education
+              Publish
             </Button>
           </div>
         </form>

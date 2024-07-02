@@ -28,7 +28,7 @@ const CreateExperiencePage = () => {
     <div className="w-full max-w-[650px] space-y-6">
       <PageHeader title="Add New Experience" />
       <ExperienceForm
-        btnLabel="Add Experience"
+        btnLabel="Publish"
         isLoading={isLoading}
         onSubmit={onSubmit}
       />

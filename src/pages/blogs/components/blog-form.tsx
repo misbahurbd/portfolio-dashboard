@@ -23,14 +23,14 @@ import { z } from "zod"
 interface BlogFormProps {
   onSubmit: (values: z.infer<typeof createBlogFormSchema>) => void
   isLoading: boolean
-  label: string
+  btnLabel: string
   initialData?: IBlog
 }
 
 const BlogForm: React.FC<BlogFormProps> = ({
   onSubmit,
   isLoading,
-  label,
+  btnLabel,
   initialData,
 }) => {
   const [imgLoading, setImgLoading] = useState(false)
@@ -156,7 +156,7 @@ const BlogForm: React.FC<BlogFormProps> = ({
               type="submit"
               disabled={isLoading || imgLoading}
             >
-              {label}
+              {btnLabel}
             </Button>
           </div>
         </div>

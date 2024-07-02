@@ -33,7 +33,7 @@ const EditBlogPage = () => {
       onSubmit={onSubmit}
       isLoading={isLoading}
       initialData={blogData?.data}
-      label="Update Blog"
+      btnLabel="Update"
     />
   )
 }
