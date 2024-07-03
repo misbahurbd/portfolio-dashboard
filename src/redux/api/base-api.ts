@@ -4,7 +4,7 @@ import { RootState } from "@/redux/store"
 import { logOut, setCredentials } from "@/redux/features/auth/auth-slice"
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "https://portfolio-server-sepia-seven.vercel.app/api/v1",
+  baseUrl: "https://misbahurbd-portfolio-server.vercel.app/api/v1",
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token
