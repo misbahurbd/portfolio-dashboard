@@ -95,7 +95,7 @@ const FormDatePicker: React.FC<FormInputProps> = ({
                 defaultMonth={defaultDate ? new Date(defaultDate) : new Date()}
                 fromYear={
                   range === "range"
-                    ? new Date().getFullYear() - 10
+                    ? new Date().getFullYear() - 30
                     : range == "future"
                     ? new Date().getFullYear()
                     : new Date().getFullYear() - 60
@@ -103,7 +103,7 @@ const FormDatePicker: React.FC<FormInputProps> = ({
                 toYear={
                   range === "past"
                     ? new Date().getFullYear()
-                    : new Date().getFullYear() + 10
+                    : new Date().getFullYear() + 30
                 }
                 onSelect={data => {
                   field.onChange(data)
