@@ -19,6 +19,8 @@ const CreateExperiencePage = () => {
       if (res.data?.success) {
         toast.success(res?.data?.message)
         navigate("/experiences")
+      } else if (!res.data?.success) {
+        toast.error(res?.data?.message || "Unable to create experience")
       }
     } catch (error: any) {
       toast.error(error?.data?.message || "Unable to create experience")
