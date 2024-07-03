@@ -15,6 +15,7 @@ import EditBlogPage from "@/pages/blogs/edit-blog"
 import ExperiencesPage from "@/pages/experiences"
 import CreateExperiencePage from "@/pages/experiences/create-experience"
 import EditExperiencePage from "@/pages/experiences/edit-experience"
+import NotFoundPage from "./pages/not-found"
 
 const App = () => {
   const router = createBrowserRouter([
@@ -104,6 +105,10 @@ const App = () => {
           element: <LoginPage />,
         },
       ],
+    },
+    {
+      path: "*",
+      element: <NotFoundPage />,
     },
   ])
 

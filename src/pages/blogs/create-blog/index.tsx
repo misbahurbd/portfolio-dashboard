@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom"
 import { toast } from "sonner"
 import { z } from "zod"
 import BlogForm from "../components/blog-form"
+import { Helmet } from "react-helmet-async"
 
 const CreateBlogPage = () => {
   const [createBlog, { isLoading }] = useCreateBlogMutation()
@@ -22,11 +23,16 @@ const CreateBlogPage = () => {
   }
 
   return (
-    <BlogForm
-      onSubmit={onSubmit}
-      isLoading={isLoading}
-      label="Publish"
-    />
+    <>
+      <Helmet>
+        <title>Add Blog - Misbahur Rahman Dashboard</title>
+      </Helmet>
+      <BlogForm
+        onSubmit={onSubmit}
+        isLoading={isLoading}
+        btnLabel="Publish"
+      />
+    </>
   )
 }
 export default CreateBlogPage

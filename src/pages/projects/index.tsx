@@ -16,6 +16,7 @@ import { useSearchParams } from "react-router-dom"
 import ProjectRow from "./components/project-row"
 import Fetching from "@/components/shared/fetching"
 import PaginationComponent from "@/components/shared/pagination"
+import { Helmet } from "react-helmet-async"
 
 const ProjectsPage = () => {
   const [searchParams] = useSearchParams()
@@ -38,6 +39,9 @@ const ProjectsPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Projects - Misbahur Rahman Dashboard</title>
+      </Helmet>
       <PageHeader
         title="Projects"
         button={[{ label: "Add New Project", href: "/projects/create" }]}

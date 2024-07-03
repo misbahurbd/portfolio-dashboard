@@ -25,6 +25,7 @@ import FormMultiSelector from "@/components/shared/form-multi-selector"
 import { sourceCoudeLabels, technologies } from "@/constants/project"
 import { useCreateProjectMutation } from "@/redux/features/project/project-api"
 import FormSelect from "@/components/shared/form-select"
+import { Helmet } from "react-helmet-async"
 
 const CreateProjectPage = () => {
   const [createProject, { isLoading }] = useCreateProjectMutation()
@@ -78,6 +79,9 @@ const CreateProjectPage = () => {
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col md:flex-row gap-4"
       >
+        <Helmet>
+          <title>Add Project - Misbahur Rahman Dashboard</title>
+        </Helmet>
         <div className="flex flex-1 flex-col gap-4">
           <FormTitleInput
             form={form}

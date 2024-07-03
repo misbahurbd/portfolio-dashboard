@@ -15,6 +15,7 @@ import { useGetExperiencesQuery } from "@/redux/features/experience/experience-a
 import { PiBriefcaseDuotone } from "react-icons/pi"
 import { useSearchParams } from "react-router-dom"
 import ExperienceRow from "./components/experience-row"
+import { Helmet } from "react-helmet-async"
 
 const ExperiencesPage = () => {
   const [searchParams] = useSearchParams()
@@ -37,6 +38,9 @@ const ExperiencesPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Expriences - Misbahur Rahman Dashboard</title>
+      </Helmet>
       <PageHeader
         title="Experiences"
         button={[{ label: "Add New Experience", href: "/experiences/create" }]}

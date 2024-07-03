@@ -8,6 +8,7 @@ import { Form } from "@/components/ui/form"
 import { useCreateEducationMutation } from "@/redux/features/education/education-api"
 import { createEducationFormSchema } from "@/validations/education.validations"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { Helmet } from "react-helmet-async"
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 import { toast } from "sonner"
@@ -44,6 +45,9 @@ const CreateEducationPage = () => {
 
   return (
     <div className="w-full max-w-[650px] space-y-6">
+      <Helmet>
+        <title>Add Education - Misbahur Rahman Dashboard</title>
+      </Helmet>
       <PageHeader title="Add New Education" />
       <Form {...form}>
         <form

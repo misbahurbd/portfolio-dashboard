@@ -10,6 +10,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { toast } from "sonner"
 import { z } from "zod"
 import EducationForm from "../components/education-form"
+import { Helmet } from "react-helmet-async"
 
 const EditEducationPage = () => {
   const { id } = useParams()
@@ -39,6 +40,9 @@ const EditEducationPage = () => {
 
   return (
     <div className="w-full max-w-[650px] space-y-6">
+      <Helmet>
+        <title>Edit Education - Misbahur Rahman Dashboard</title>
+      </Helmet>
       <PageHeader title="Update Education" />
       <EducationForm
         onSubmit={onSubmit}

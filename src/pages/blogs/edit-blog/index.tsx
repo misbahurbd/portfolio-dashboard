@@ -9,6 +9,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { toast } from "sonner"
 import { z } from "zod"
 import BlogForm from "../components/blog-form"
+import { Helmet } from "react-helmet-async"
 
 const EditBlogPage = () => {
   const { id } = useParams()
@@ -29,12 +30,17 @@ const EditBlogPage = () => {
   if (isFetching) return null
 
   return (
-    <BlogForm
-      onSubmit={onSubmit}
-      isLoading={isLoading}
-      initialData={blogData?.data}
-      btnLabel="Update"
-    />
+    <>
+      <Helmet>
+        <title>Edit Blog - Misbahur Rahman Dashboard</title>
+      </Helmet>
+      <BlogForm
+        onSubmit={onSubmit}
+        isLoading={isLoading}
+        initialData={blogData?.data}
+        btnLabel="Update"
+      />
+    </>
   )
 }
 export default EditBlogPage

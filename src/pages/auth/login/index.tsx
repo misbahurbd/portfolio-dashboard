@@ -13,6 +13,7 @@ import { useLoginMutation } from "@/redux/features/auth/auth-api"
 import { useAppDispatch } from "@/redux/hooks"
 import { setCredentials } from "@/redux/features/auth/auth-slice"
 import { useNavigate } from "react-router-dom"
+import { Helmet } from "react-helmet-async"
 
 const LoginPage = () => {
   const [login, { isLoading }] = useLoginMutation()
@@ -45,7 +46,10 @@ const LoginPage = () => {
   }
 
   return (
-    <div className="">
+    <div>
+      <Helmet>
+        <title>Login - Misbahur Rahman Dashboard</title>
+      </Helmet>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onLogin)}

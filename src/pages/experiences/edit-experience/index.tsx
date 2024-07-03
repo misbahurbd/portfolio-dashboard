@@ -10,6 +10,7 @@ import {
   useGetExperienceQuery,
   useUpdateExperienceMutation,
 } from "@/redux/features/experience/experience-api"
+import { Helmet } from "react-helmet-async"
 
 const EditExperiencePage = () => {
   const { id } = useParams()
@@ -37,6 +38,9 @@ const EditExperiencePage = () => {
 
   return (
     <div className="w-full max-w-[650px] space-y-6">
+      <Helmet>
+        <title>Edit Exprience - Misbahur Rahman Dashboard</title>
+      </Helmet>
       <PageHeader title="Update Education" />
       <ExperienceForm
         onSubmit={onSubmit}

@@ -13,6 +13,7 @@ import { useGetBlogsQuery } from "@/redux/features/blog/blog-api"
 import { PiFilesDuotone } from "react-icons/pi"
 import { useSearchParams } from "react-router-dom"
 import BlogRow from "./components/blog-row"
+import { Helmet } from "react-helmet-async"
 
 const BlogsPage = () => {
   const [searchParams] = useSearchParams()
@@ -35,6 +36,9 @@ const BlogsPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Blog - Misbahur Rahman Dashboard</title>
+      </Helmet>
       <PageHeader
         title="All Blogs"
         button={[{ label: "Add New Blog", href: "/blogs/create" }]}

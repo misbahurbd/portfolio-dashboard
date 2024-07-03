@@ -16,6 +16,7 @@ import { useGetEducationsQuery } from "@/redux/features/education/education-api"
 import { PiGraduationCapDuotone } from "react-icons/pi"
 import { useSearchParams } from "react-router-dom"
 import EducationRow from "./components/education-row"
+import { Helmet } from "react-helmet-async"
 
 const EducationPage = () => {
   const [searchParams] = useSearchParams()
@@ -38,6 +39,9 @@ const EducationPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Educations - Misbahur Rahman Dashboard</title>
+      </Helmet>
       <PageHeader
         title="Educations"
         button={[{ label: "Add New Education", href: "/educations/create" }]}
