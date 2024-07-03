@@ -28,23 +28,23 @@ export const blogCategories = [
     value: "HTML_CSS",
   },
   {
-    label: "Frontend Development",
+    label: "Frontend",
     value: "Frontend",
   },
   {
-    label: "Backend Development",
+    label: "Backend",
     value: "Backend",
   },
   {
-    label: "Web Development",
+    label: "Development",
     value: "WebDevelopment",
   },
   {
-    label: "UI/UX Design",
+    label: "UI/UXn",
     value: "UI_UX",
   },
   {
-    label: "Database Management",
+    label: "Database",
     value: "Database",
   },
 ]

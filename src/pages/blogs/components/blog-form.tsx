@@ -139,7 +139,10 @@ const BlogForm: React.FC<BlogFormProps> = ({
                     name="category"
                     placeholder="Category"
                     className="bg-background"
-                    data={blogCategories}
+                    data={blogCategories.map(ct => ({
+                      label: ct.label,
+                      value: ct.label,
+                    }))}
                     disabled={isLoading}
                   />
                   {/* <Button
