@@ -5,7 +5,7 @@ import {
   PiFilesDuotone,
   PiGraduationCapDuotone,
   // PiHouseLineDuotone,
-  // PiLightbulbFilamentDuotone,
+  PiLightbulbFilamentDuotone,
 } from "react-icons/pi"
 
 export const navlinks = (
@@ -42,11 +42,11 @@ export const navlinks = (
       isActive: pathname.startsWith("/educations"),
       icon: PiGraduationCapDuotone,
     },
-    // {
-    //   path: "/skills",
-    //   label: "Skills",
-    //   isActive: pathname.startsWith("/skills"),
-    //   icon: PiLightbulbFilamentDuotone,
-    // },
+    {
+      path: "/skills",
+      label: "Skills",
+      isActive: pathname.startsWith("/skills"),
+      icon: PiLightbulbFilamentDuotone,
+    },
   ]
 }

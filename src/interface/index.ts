@@ -72,3 +72,13 @@ export interface IMetadata {
   createdAt: string
   updatedAt: string
 }
+
+export interface ISkill {
+  id: string
+  label: string
+  value: string
+  experiencesLevel: "Beginner" | "Intermediate" | "Advanced" | "Expert"
+  isFeatured: boolean
+  createdAt: string
+  updatedAt: string
+}

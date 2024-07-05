@@ -16,25 +16,18 @@ import { PiBriefcaseDuotone } from "react-icons/pi"
 import { useSearchParams } from "react-router-dom"
 import ExperienceRow from "./components/experience-row"
 import { Helmet } from "react-helmet-async"
+import LoadingUi from "@/components/shared/loading-ui"
 
 const ExperiencesPage = () => {
   const [searchParams] = useSearchParams()
 
-  const {
-    data: experiencesData,
-    isLoading,
-    isFetching,
-  } = useGetExperiencesQuery({ query: Object.fromEntries([...searchParams]) })
+  const { data: experiencesData, isFetching } = useGetExperiencesQuery({
+    query: Object.fromEntries([...searchParams]),
+  })
 
   const totalPage =
     Math.ceil(experiencesData?.meta?.total / experiencesData?.meta?.limit) || 0
   const page = experiencesData?.meta?.page || 1
-
-  console.log({
-    experiencesData,
-    isLoading,
-    isFetching,
-  })
 
   return (
     <>
@@ -45,6 +38,7 @@ const ExperiencesPage = () => {
         title="Experiences"
         button={[{ label: "Add New Experience", href: "/experiences/create" }]}
       />
+      {isFetching && <LoadingUi subject="experience" />}
       {experiencesData &&
         experiencesData.data &&
         experiencesData.data.length == 0 && (

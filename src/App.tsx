@@ -16,6 +16,7 @@ import ExperiencesPage from "@/pages/experiences"
 import CreateExperiencePage from "@/pages/experiences/create-experience"
 import EditExperiencePage from "@/pages/experiences/edit-experience"
 import NotFoundPage from "./pages/not-found"
+import SkillsPage from "./pages/skills"
 
 const App = () => {
   const router = createBrowserRouter([
@@ -91,6 +92,15 @@ const App = () => {
             {
               path: "edit/:id",
               element: <EditEducationPage />,
+            },
+          ],
+        },
+        {
+          path: "skills",
+          children: [
+            {
+              index: true,
+              element: <SkillsPage />,
             },
           ],
         },

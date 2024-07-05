@@ -17,25 +17,18 @@ import { PiGraduationCapDuotone } from "react-icons/pi"
 import { useSearchParams } from "react-router-dom"
 import EducationRow from "./components/education-row"
 import { Helmet } from "react-helmet-async"
+import LoadingUi from "@/components/shared/loading-ui"
 
 const EducationPage = () => {
   const [searchParams] = useSearchParams()
 
-  const {
-    data: educationData,
-    isLoading,
-    isFetching,
-  } = useGetEducationsQuery({ query: Object.fromEntries([...searchParams]) })
+  const { data: educationData, isFetching } = useGetEducationsQuery({
+    query: Object.fromEntries([...searchParams]),
+  })
 
   const totalPage =
     Math.ceil(educationData?.meta?.total / educationData?.meta?.limit) || 0
   const page = educationData?.meta?.page || 1
-
-  console.log({
-    educationData,
-    isLoading,
-    isFetching,
-  })
 
   return (
     <>
@@ -46,6 +39,7 @@ const EducationPage = () => {
         title="Educations"
         button={[{ label: "Add New Education", href: "/educations/create" }]}
       />
+      {isFetching && <LoadingUi subject="education" />}
       {educationData &&
         educationData.data &&
         educationData.data.length == 0 && (

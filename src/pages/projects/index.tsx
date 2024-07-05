@@ -17,25 +17,20 @@ import ProjectRow from "./components/project-row"
 import Fetching from "@/components/shared/fetching"
 import PaginationComponent from "@/components/shared/pagination"
 import { Helmet } from "react-helmet-async"
+import LoadingUi from "@/components/shared/loading-ui"
 
 const ProjectsPage = () => {
   const [searchParams] = useSearchParams()
 
   const {
     data: projectsData,
-    isLoading,
+
     isFetching,
   } = useGetProjectsQuery({ query: Object.fromEntries([...searchParams]) })
 
   const totalPage =
     Math.ceil(projectsData?.meta?.total / projectsData?.meta?.limit) || 0
   const page = projectsData?.meta?.page || 1
-
-  console.log({
-    projectsData,
-    isLoading,
-    isFetching,
-  })
 
   return (
     <>
@@ -46,6 +41,7 @@ const ProjectsPage = () => {
         title="Projects"
         button={[{ label: "Add New Project", href: "/projects/create" }]}
       />
+      {isFetching && <LoadingUi subject="project" />}
       {projectsData && projectsData.data && projectsData.data.length == 0 && (
         <EmptyResult
           icon={PiDiamondsFourDuotone}

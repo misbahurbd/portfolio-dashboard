@@ -14,25 +14,18 @@ import { PiFilesDuotone } from "react-icons/pi"
 import { useSearchParams } from "react-router-dom"
 import BlogRow from "./components/blog-row"
 import { Helmet } from "react-helmet-async"
+import LoadingUi from "@/components/shared/loading-ui"
 
 const BlogsPage = () => {
   const [searchParams] = useSearchParams()
 
-  const {
-    data: blogsData,
-    isLoading,
-    isFetching,
-  } = useGetBlogsQuery({ query: Object.fromEntries([...searchParams]) })
+  const { data: blogsData, isFetching } = useGetBlogsQuery({
+    query: Object.fromEntries([...searchParams]),
+  })
 
   const totalPage =
     Math.ceil(blogsData?.meta?.total / blogsData?.meta?.limit) || 0
   const page = blogsData?.meta?.page || 1
-
-  console.log({
-    blogsData,
-    isLoading,
-    isFetching,
-  })
 
   return (
     <>
@@ -43,6 +36,7 @@ const BlogsPage = () => {
         title="All Blogs"
         button={[{ label: "Add New Blog", href: "/blogs/create" }]}
       />
+      {isFetching && <LoadingUi subject="blog" />}
       {blogsData && blogsData.data && blogsData.data.length == 0 && (
         <EmptyResult
           icon={PiFilesDuotone}
