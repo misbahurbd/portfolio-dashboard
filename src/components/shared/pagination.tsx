@@ -3,13 +3,13 @@ import {
   PaginationContent,
   PaginationEllipsis,
   PaginationItem,
-  PaginationLink,
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination"
 import { cn } from "@/lib/utils"
 import { useEffect } from "react"
 import { Link, useLocation, useSearchParams } from "react-router-dom"
+import { Button } from "../ui/button"
 
 const PaginationComponent = ({
   totalPages,
@@ -79,17 +79,13 @@ const PaginationComponent = ({
         )}
         {pageNavs.map(page => (
           <PaginationItem key={page}>
-            <Link
-              to={createPageURL(page)}
-              className={cn(
-                page == currentPage,
-                "pointer-events-none text-muted-foreground"
-              )}
+            <Button
+              asChild
+              variant={page == currentPage ? "ghost" : "outline"}
+              disabled={page == currentPage}
             >
-              <PaginationLink isActive={page !== currentPage}>
-                {page}
-              </PaginationLink>
-            </Link>
+              <Link to={createPageURL(page)}>{page}</Link>
+            </Button>
           </PaginationItem>
         ))}
         {pageNavs[pageNavs.length - 1] !== totalPages && (
