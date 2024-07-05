@@ -38,7 +38,6 @@ const SkillsPage = () => {
         title="All Skills"
         button={[{ label: "Add New Skill", onClick: onOpen }]}
       />
-      {isFetching && <LoadingUi subject="skill" />}
       {skillsData && skillsData.data && skillsData.data.length == 0 && (
         <EmptyResult
           icon={PiLightbulbFilamentDuotone}
@@ -56,15 +55,17 @@ const SkillsPage = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {skillsData.data.map((skill: ISkill) => (
-              <SkillRow
-                key={skill.id}
-                skill={skill}
-              />
-            ))}
+            {!isFetching &&
+              skillsData.data.map((skill: ISkill) => (
+                <SkillRow
+                  key={skill.id}
+                  skill={skill}
+                />
+              ))}
           </TableBody>
         </Table>
       )}
+      {isFetching && <LoadingUi subject="skill" />}
 
       <PaginationComponent
         currentPage={page}

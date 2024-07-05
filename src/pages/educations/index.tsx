@@ -39,7 +39,6 @@ const EducationPage = () => {
         title="Educations"
         button={[{ label: "Add New Education", href: "/educations/create" }]}
       />
-      {isFetching && <LoadingUi subject="education" />}
       {educationData &&
         educationData.data &&
         educationData.data.length == 0 && (
@@ -66,15 +65,18 @@ const EducationPage = () => {
                 </TableCell>
               </TableRow>
             )}
-            {educationData.data.map((edu: IEducation) => (
-              <EducationRow
-                key={edu.id}
-                edu={edu}
-              />
-            ))}
+            {!isFetching &&
+              educationData.data.map((edu: IEducation) => (
+                <EducationRow
+                  key={edu.id}
+                  edu={edu}
+                />
+              ))}
           </TableBody>
         </Table>
       )}
+
+      {isFetching && <LoadingUi subject="education" />}
 
       <PaginationComponent
         currentPage={page}

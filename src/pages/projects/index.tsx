@@ -41,7 +41,6 @@ const ProjectsPage = () => {
         title="Projects"
         button={[{ label: "Add New Project", href: "/projects/create" }]}
       />
-      {isFetching && <LoadingUi subject="project" />}
       {projectsData && projectsData.data && projectsData.data.length == 0 && (
         <EmptyResult
           icon={PiDiamondsFourDuotone}
@@ -66,15 +65,19 @@ const ProjectsPage = () => {
                 </TableCell>
               </TableRow>
             )}
-            {projectsData.data.map((project: IProject) => (
-              <ProjectRow
-                key={project.id}
-                project={project}
-              />
-            ))}
+            {!isFetching &&
+              projectsData.data.map((project: IProject) => (
+                <ProjectRow
+                  key={project.id}
+                  project={project}
+                />
+              ))}
           </TableBody>
         </Table>
       )}
+
+      {isFetching && <LoadingUi subject="project" />}
+
       <PaginationComponent
         currentPage={page}
         totalPages={totalPage}

@@ -36,7 +36,6 @@ const BlogsPage = () => {
         title="All Blogs"
         button={[{ label: "Add New Blog", href: "/blogs/create" }]}
       />
-      {isFetching && <LoadingUi subject="blog" />}
       {blogsData && blogsData.data && blogsData.data.length == 0 && (
         <EmptyResult
           icon={PiFilesDuotone}
@@ -54,15 +53,18 @@ const BlogsPage = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {blogsData.data.map((blog: IBlog) => (
-              <BlogRow
-                key={blog.id}
-                blog={blog}
-              />
-            ))}
+            {!isFetching &&
+              blogsData.data.map((blog: IBlog) => (
+                <BlogRow
+                  key={blog.id}
+                  blog={blog}
+                />
+              ))}
           </TableBody>
         </Table>
       )}
+
+      {isFetching && <LoadingUi subject="blog" />}
 
       <PaginationComponent
         currentPage={page}

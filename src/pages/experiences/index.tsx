@@ -38,7 +38,6 @@ const ExperiencesPage = () => {
         title="Experiences"
         button={[{ label: "Add New Experience", href: "/experiences/create" }]}
       />
-      {isFetching && <LoadingUi subject="experience" />}
       {experiencesData &&
         experiencesData.data &&
         experiencesData.data.length == 0 && (
@@ -67,15 +66,18 @@ const ExperiencesPage = () => {
                   </TableCell>
                 </TableRow>
               )}
-              {experiencesData.data.map((experience: IExperience) => (
-                <ExperienceRow
-                  key={experience.id}
-                  experience={experience}
-                />
-              ))}
+              {!isFetching &&
+                experiencesData.data.map((experience: IExperience) => (
+                  <ExperienceRow
+                    key={experience.id}
+                    experience={experience}
+                  />
+                ))}
             </TableBody>
           </Table>
         )}
+
+      {isFetching && <LoadingUi subject="experience" />}
 
       <PaginationComponent
         currentPage={page}
